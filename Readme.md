@@ -14,29 +14,29 @@ the Params object must contain your access token!
 
 ## Example (express.js)
 
-  var express = require('express');
-  var app = module.exports = express.createServer();
-  
-  var soundcloud = new require('soundcloud')('appID', 'appSecret', 'http://redirect.url'); // add a fourth argument, true, if using sandbox
-  
-  app.get('/auth', function(req, res) {
-    soundcloud.getAccessToken(req, res, function(err, token) {
-      if(token) {
-        // Insert into a DB, do whatever else you'd wanna do?
-      }
-    });
-  });
-  
-  app.get('/my_tracks', function(req, res) {
-    // Assuming you've already authenticated
-    soundcloud.apiCall('GET', 'me/tracks', {token: req.user.sc_token}, function(err, data, response) {
-      res.render('tracks', {
-        locals: {
-          tracks: data
+    var express = require('express');
+    var app = module.exports = express.createServer();
+    
+    var soundcloud = new require('soundcloud')('appID', 'appSecret', 'http://redirect.url'); // add a fourth argument, true, if using sandbox
+    
+    app.get('/auth', function(req, res) {
+      soundcloud.getAccessToken(req, res, function(err, token) {
+        if(token) {
+          // Insert into a DB, do whatever else you'd wanna do?
         }
       });
     });
-  }
+    
+    app.get('/my_tracks', function(req, res) {
+      // Assuming you've already authenticated
+      soundcloud.apiCall('GET', 'me/tracks', {token: req.user.sc_token}, function(err, data, response) {
+        res.render('tracks', {
+          locals: {
+            tracks: data
+          }
+        });
+      });
+    }
   
 ## Future Plans
 
