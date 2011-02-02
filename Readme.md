@@ -1,7 +1,7 @@
 #node-soundcloud
 
 Fun little soundcloud client for node.js! wooo!
-The majority of the structure of this SDK was taken from masylub's twitter-js client, so thanks to him for that!
+The majority of the structure of this SDK was taken from [masylum]{https://github.com/masylum "masylum"}'s [twitter-js]{https://github.com/masylum/twitter-js "twitter-js"} client, so thanks to him for that!
 
 ## Usage
 
